@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace GestordePacientes.Core.Domain.Entities
 {
-    public class User : AuditableBaseEntity
+    public class User
     {
 
     }
+
 }

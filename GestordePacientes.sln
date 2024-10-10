@@ -5,19 +5,19 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestordePacientes", "GestordePacientes\GestordePacientes.csproj", "{2DFDC2AB-1947-46C3-B536-B8E86351C48E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{D4A5D360-BDA4-47A6-8160-A468DD5E6E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestordePacientes.Core.Application", "Application\GestordePacientes.Core.Application.csproj", "{D4A5D360-BDA4-47A6-8160-A468DD5E6E41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Domain\Database.csproj", "{CC95DBAD-85F8-4058-8671-1936D1D2EED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestordePacientes.Infrastructure.Persistence", "Domain\GestordePacientes.Infrastructure.Persistence.csproj", "{CC95DBAD-85F8-4058-8671-1936D1D2EED0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{DA7A7E4F-2C85-4119-9694-967364E53316}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{EEDB9ED5-EB10-418C-8B6D-E1BA6D7100E0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{B93B8B99-22AA-485C-AD8C-638BE50A4358}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B93B8B99-22AA-485C-AD8C-638BE50A4358}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{44E68974-8F91-41C6-AA25-2DE0B9FA972A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestordePacientes.Domain", "GestordePacientes.Domain\GestordePacientes.Domain.csproj", "{E10F3803-34C5-401A-B528-450794B46F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestordePacientes.Core.Domain", "GestordePacientes.Domain\GestordePacientes.Core.Domain.csproj", "{E10F3803-34C5-401A-B528-450794B46F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

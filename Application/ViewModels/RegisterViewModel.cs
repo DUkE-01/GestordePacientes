@@ -34,7 +34,7 @@ namespace Application.ViewModels
             [DataType(DataType.Password)]
             public string ConfirmPassword { get; set; }
 
-            public string Rol { get; set; }
+            public int Rol { get; set; }
     }
 
 }
