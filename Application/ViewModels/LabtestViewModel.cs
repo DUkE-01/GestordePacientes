@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestordePacientes.Core.Domain.Entities
+namespace GestordePacientes.Core.Application.ViewModels
 {
-    public class Date
+    public class LabtestViewModel
     {
     }
 }

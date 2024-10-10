@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GestordePacientes.Core.Domain;
+using GestordePacientes.Core.Domain.Entities;
 
-namespace Database
+namespace GestordePacientes.Infrastructure.Persistence.Contexts
 {
     public class ApplicationContext : DbContext
     {
@@ -19,5 +19,13 @@ namespace Database
         public DbSet<Labtest> Labtests { get; set; }
         public DbSet<Labresult> labresults { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Fluent API
+
+
+
+
+        }
     }
 }

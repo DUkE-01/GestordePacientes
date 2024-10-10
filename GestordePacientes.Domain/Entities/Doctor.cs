@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestordePacientes.Core.Domain.Entities
 {
-    internal class Doctor
+    public class Doctor
     {
     }
 }

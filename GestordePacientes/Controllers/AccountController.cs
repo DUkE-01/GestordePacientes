@@ -19,10 +19,16 @@ namespace GestordePacientes.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Aquí iría tu lógica de autenticación
-                if (/* lógica de autenticación exitosa */)
+                // Intentamos encontrar el usuario con el nombre de usuario proporcionado
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (user != null)
                 {
-                    return RedirectToAction("Index", "Home");
+                    // Verificamos si la contraseña es correcta
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, lockoutOnFailure: false);
+                    if (result.Succeeded)
+                {
+                    return RedirectToAction("MenuAdmin", "Home");
                 }
                 else
                 {
@@ -49,6 +55,10 @@ namespace GestordePacientes.Controllers
                 return RedirectToAction("Login");
             }
             return View(model);
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 
