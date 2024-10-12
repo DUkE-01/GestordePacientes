@@ -3,6 +3,7 @@ using GestordePacientes.Core.Application.ViewModels.User;
 using GestordePacientes.Core.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.GestordePacientes.Middlewares;
 
 namespace GestordePacientes.Controllers
 {
