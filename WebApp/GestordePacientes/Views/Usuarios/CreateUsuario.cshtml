@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c5077;
+            margin: 0;
+        }
+
+        .Admin-screen {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+            .Admin-screen h1 {
+                margin-bottom: 20px;
+            }
+
+            .Admin-screen input,
+            .Admin-screen select {
+                width: 80%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            .Admin-screen button {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                margin: 10px 0;
+                font-size: 16px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: white;
+                transition: background-color 0.3s;
+            }
+
+                .Admin-screen button:hover {
+                    background-color: #0056b3;
+                }
+
+        #salir-button {
+            background-color: #dc3545;
+        }
+
+            #salir-button:hover {
+                background-color: #c82333;
+            }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="Admin-screen">
+        <h1>Crear Usuario</h1>
+        <form method="post" asp-action="CreateUser" asp-controller="Usuarios">
+            <input type="text" name="Name" placeholder="Nombre" required>
+            <input type="text" name="LastName" placeholder="Apellido" required>
+            <input type="text" name="UserName" placeholder="Nombre de usuario" required>
+            <input type="email" name="Email" placeholder="Correo Electrónico" required>
+            <input type="password" name="Password" placeholder="Contraseña" required>
+            <input type="password" name="ConfirmePassword" placeholder="Confirma Contraseña" required>
+            <select name="Rol" class="form-select" aria-label="Selecciona el rol:" required>
+                <option value="">Selecciona el rol:</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Asistente">Asistente</option>
+            </select><br><br>
+            <button type="submit">Crear Usuario</button>
+            <button type="button" onclick="window.history.back()" id="salir-button">Atrás</button>
+        </form>
+    </div>
+</body>
+</html>

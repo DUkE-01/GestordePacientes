@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Maintenance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c5077;
+            margin: 0;
+        }
+        .assistant-screen {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .assistant-screen h1 {
+            margin-bottom: 20px;
+        }
+        .assistant-screen button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .assistant-screen button:hover {
+            background-color: #0056b3;
+        }
+        .assistant-screen table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .assistant-screen table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .assistant-screen th {
+            background-color: #f2f2f2;
+        }
+                #salir-button{
+            background-color: #dc3545;
+        }
+        #salir-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="assistant-screen">
+        <h1>Mantenimiento de Citas</h1>
+
+        <!-- Botones de acciones CRUD -->
+        <button onclick="CreateCita()">Agregar Cita</button>
+
+        <!-- Tabla de Citas -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del paciente</th>
+                    <th>Nombre del Doctor</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se puede hacer un bucle con Razor para mostrar las citas -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Dr. Smith</td>
+                    <td>10/10/2024</td>
+                    <td>
+                        <button onclick="EditCita()">Edit</button>
+                        <button onclick="DeleteCita()">Delete</button>
+                    </td>
+                </tr>
+                <!-- Más filas de citas -->
+            </tbody>
+        </table>
+        <!-- Botón para regresar -->
+        <button onclick="window.history.back()" id="salir-button">Atrás</button>
+    </div>
+
+    <script>
+        function CreateCita() {
+            window.location.href = '@Url.Action("CreateCita", "Citas")';
+        }
+        function EditCita() {
+            window.location.href = '@Url.Action("EditCita", "Citas")';
+        }
+        function DeleteCita() {
+            window.location.href = '@Url.Action("DeleteCita", "Citas")';
+        }
+    </script>
+</body>
+</html>

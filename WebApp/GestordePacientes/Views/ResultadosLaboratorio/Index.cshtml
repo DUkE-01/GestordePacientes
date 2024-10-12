@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Result Maintenance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c5077;
+            margin: 0;
+        }
+        .assistant-screen {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        .assistant-screen h1 {
+            margin-bottom: 20px;
+        }
+        .assistant-screen button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .assistant-screen button:hover {
+            background-color: #0056b3;
+        }
+        .assistant-screen table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .assistant-screen table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .assistant-screen th {
+            background-color: #f2f2f2;
+        }
+        #salir-button{
+            background-color: #dc3545;
+        }
+        #salir-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="assistant-screen">
+        <h1>Mantenimiento de Resultados de Laboratorio</h1>
+
+        <!-- Botones de acciones CRUD -->
+        <button onclick="CreateLabResult()">Agregar Resultados de Laboratorio</button>
+
+        <!-- Tabla de Resultados de Laboratorio -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del Paciente</th>
+                    <th>Prueba</th>
+                    <th>Resultados</th>
+                    <th>Aciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se puede hacer un bucle con Razor para mostrar los resultados -->
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Blood Test</td>
+                    <td>Normal</td>
+                    <td>
+                        <button onclick="EditLabResult()">Edit</button>
+                        <button onclick="DeleteLabResult()">Delete</button>
+                    </td>
+                </tr>
+                <!-- Más filas de resultados -->
+            </tbody>
+        </table>
+        <!-- Botón para regresar -->
+        <button onclick="window.history.back()" id="salir-button">Atrás</button>
+    </div>
+    <script>
+        function CreateLabResult() {
+            window.location.href = '@Url.Action("CreateResultadosLaboratorio", "ResultadosLaboratorio")';
+        }
+        function EditLabResult() {
+            window.location.href = '@Url.Action("EditResultadosLaboratorio", "ResultadosLaboratorio")';
+        }
+        function DeleteLabResult() {
+            window.location.href = '@Url.Action("DeleteResultadosLaboratorio", "ResultadosLaboratorio")';
+        }
+    </script>
+</body>
+</html>
+

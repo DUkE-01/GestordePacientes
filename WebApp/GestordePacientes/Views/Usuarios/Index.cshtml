@@ -1,0 +1,131 @@
+﻿@using GestordePacientes.Core.Application.ViewModels.User
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Maintenance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c5077;
+            margin: 0;
+        }
+
+        .Admin-screen {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+            .Admin-screen h1 {
+                margin-bottom: 20px;
+            }
+
+            .Admin-screen button {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                margin: 10px 0;
+                font-size: 16px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: white;
+                transition: background-color 0.3s;
+            }
+
+                .Admin-screen button:hover {
+                    background-color: #0056b3;
+                }
+
+            .Admin-screen table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            .Admin-screen table, th, td {
+                border: 1px solid #ccc;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .Admin-screen th {
+                background-color: #f2f2f2;
+            }
+
+        #salir-button {
+            background-color: #dc3545;
+        }
+
+            #salir-button:hover {
+                background-color: #c82333;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="Admin-screen">
+        <h1>Mantenimiento de Usuarios</h1>
+
+        <!-- Botones de acciones CRUD -->
+        <button onclick="CreateUsuario()">Agregar nuevo Usuario</button>
+
+        <!-- Tabla de Usuarios -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Usuario</th>
+                    <th>Correo Electrónico</th>
+                    <th>Tipo de Usuario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.Username</td>
+                        <td>@user.Email</td>
+                        <td>@user.Role</td>
+                        <td>
+                            <button onclick="EditUsuario(@user.Id)">Editar</button>
+                            <button onclick="DeleteUsuario(@user.Id)">Borrar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- Botón para regresar -->
+        <button onclick="window.history.back()" id="salir-button">Atrás</button>
+    </div>
+    <script>
+        function CreateUsuario() {
+            window.location.href = '@Url.Action("CreateUsuario", "Usuarios")';
+        }
+        function EditUsuario() {
+            window.location.href = '@Url.Action("EditUsuario", "Usuarios")';
+        }
+        function DeleteUsuario() {
+            window.location.href = '@Url.Action("DeleteUsuario", "Usuarios")';
+        }
+    </script>
+</body>
+</html>

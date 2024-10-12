@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Gestor de Pacientes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3c5077;
+            margin: 0;
+        }
+        .assistant-screen {
+            background-color: #fff;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .assistant-screen h1 {
+            margin-bottom: 20px;
+        }
+        .assistant-screen button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .assistant-screen button:hover {
+            background-color: #0056b3;
+        }
+
+        #salir-button {
+            background-color: #dc3545;
+        }
+
+        #salir-button:hover {
+                background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="assistant-screen">
+        <h1>Sistem Gestor de Pacientes</h1>
+        <button onclick="PatientManage()">Mantenimiento de Pacientes</button>
+        <button onclick="DatesManage()">Mantenimiento de Citas</button>
+        <button onclick="LabtestsresultsManage()">Mantenimiento de resultados de Pruebas de Laboratorio</button>
+        <button type="button" class="btn btn-danger" id="salir-button" onclick="loginRegister()">Atrás</button>
+    </div>
+
+    <script>
+        function PatientManage() {
+            window.location.href = '@Url.Action("Index", "Pacientes")';
+        }
+        function DatesManage() {
+            window.location.href = '@Url.Action("Index", "Citas")';
+        }
+        function LabtestsresultsManage() {
+            window.location.href = '@Url.Action("Index", "ResultadosLaboratorio")';
+        }
+        function loginRegister() {
+            window.location.href = '@Url.Action("Login_Register", "Shared")';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@using GestordePacientes.Core.Application.ViewModels.User
+
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Login/Regístrarse";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Gestor de Pacientes</title>
+
+    <!-- Mantener tu Bootstrap y estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+
+    <!-- SweetAlert2 para las alertas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- jQuery para interacciones -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body style="opacity: 75; background-color: #aed6f1; width: 100%; height: auto; background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: cover;">
+
+    <main>
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Aún no tienes una cuenta?</h3>
+                    <p>Regístrate para que puedas iniciar sesión</p>
+                    <button id="btn__registrarse">Regístrarse</button>
+                </div>
+            </div>
+
+            <!-- Formulario de Login y registro -->
+            <div class="contenedor__login-register">
+                <!--Login-->
+                <form class="formulario__login" id="formulario__login" asp-action="Login" method="post">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" placeholder="Correo:" name="Email" id="email" required>
+                    <input type="password" placeholder="Contraseña:" name="Password" id="password" required><br><br>
+                    <div class="alert alert-warning" role="alert" id="error-message-login" style="display:none;"></div>
+                    <button type="submit" id="btn__entrar">Entrar</button>
+                </form>
+
+                <!-- Registro -->
+                <form asp-action="Register" method="post" class="formulario__register" id="formulario__register">
+                    <h2>Regístrarse</h2>
+                    <input type="text" class="form-control" placeholder="Nombre" name="Nombre" value="@Model?.Name" required>
+                    <input type="text" class="form-control" placeholder="Apellido" name="Apellido" value="@Model?.LastName" required>
+                    <input type="text" class="form-control" placeholder="Nombre de Usuario" name="NombreDeUsuario" value="@Model?.UserName" required>
+                    <input type="text" class="form-control" placeholder="Consultorio" name="Consultorio" value="@Model?.Hospital" required>
+                    <input type="email" class="form-control" placeholder="Correo electrónico" name="Correo" value="@Model?.Email" required>
+                    <input type="password" class="form-control" placeholder="Contraseña" name="Password" required>
+                    <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmePassword" required>
+                    <select class="form-select" name="Rol" required>
+                        <option value="" selected>Selecciona tu rol:</option>
+                        @if (Model?.Rol == "Administrador")
+                        {
+                            <option value="Administrador" selected>Administrador</option>
+                        }
+                        else
+                        {
+                            <option value="Administrador">Administrador</option>
+                        }
+
+                        @if (Model?.Rol == "Asistente")
+                        {
+                            <option value="Asistente" selected>Asistente</option>
+                        }
+                        else
+                        {
+                            <option value="Asistente">Asistente</option>
+                        }
+                    </select><br>
+
+                    <!-- Mostrar mensaje de error si existe -->
+                    @if (ViewData["mensaje"] != null)
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            @ViewData["mensaje"]
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary">Regístrarse</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mantener tus archivos JS -->
+    <script src="~/js/login-register.js"></script>
+    <script src="~/js/script.js"></script>
+
+    <!-- SweetAlert2 para errores -->
+    @if (ViewData["mensaje"] != null)
+    {
+        <script>
+            Swal.fire({
+                title: 'Error!',
+                text: '@ViewData["mensaje"]',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    }
+</body>
+</html>
